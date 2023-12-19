@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<form action="http://localhost:8080/personagem" method="post">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" placeholder="Nome">
+
+    <label for="pontos">Pontos</label>
+    <input type="number" id="pontos" name="pontos" placeholder="pontos">
+
+    <label for="papel">Papel</label>
+    <select id="papel" name="papel">
+        <option th:each="papelO : ${T(com.projeto.inicial.model.domain.Papel).values()}"
+                th:value="${papelO}" th:text="${papelO.displayValue}"></option>
+        <option>rRE</option>
+    </select>
+    <label for="desenhoPers">desenhoPers</label>
+
+    <input type="text" id="desenhoPers" name="desenhoPers" placeholder="desenhoPers ">
+
+
+        <br><br><input type="submit" value="Create Character">
+</form>
+<form action="http://localhost:8080/personagem" method="get">
+    <br>
+    <input type="submit" value="Mostrar Personagens">
+</form>
+</center>
+
+</body>
+</html>
