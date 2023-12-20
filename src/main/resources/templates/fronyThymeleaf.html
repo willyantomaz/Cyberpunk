@@ -1,36 +1,86 @@
+
+
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
 </head>
 <body>
 <center>
-<form action="http://localhost:8080/personagem" method="post">
+    <form action="http://localhost:8080/personagem" method="post">
     <label for="nome">Nome</label>
     <input type="text" id="nome" name="nome" placeholder="Nome">
 
     <label for="pontos">Pontos</label>
-    <input type="number" id="pontos" name="pontos" placeholder="pontos">
+    <input type="number" id="pontos" name="pontos" placeholder="Pontos">
 
-    <label for="papel">Papel</label>
-    <select id="papel" name="papel">
-        <option th:each="papelO : ${T(com.projeto.inicial.model.domain.Papel).values()}"
-                th:value="${papelO}" th:text="${papelO.displayValue}"></option>
-        <option>rRE</option>
-    </select>
-    <label for="desenhoPers">desenhoPers</label>
+    <label>
+        <select type="text" id="papel" name="papel" title="Selecione um papel">
+            <option value="SOLO">Solo</option>
+            <option value="ROQUEIRO">Roqueiro</option>
+            <option value="NETRUNNER">Netrunner</option>
+            <option value="TECNICO">Técnico</option>
+            <option value="NOMADE">Nômade</option>
+            <option value="ATRAVESSADOR">Atravessador</option>
+            <option value="POLICIA">Polícia</option>
+            <option value="EXECUTIVO">Executivo</option>
+            <option value="MIDIA">Mídia</option>
+            <option value="TECNICO_MEDICO">Técnico Médico</option>
+        </select>
+    </label>
 
-    <input type="text" id="desenhoPers" name="desenhoPers" placeholder="desenhoPers ">
+    <label for="desenhoPers">Desenho</label>
+    <input type="text" id="desenhoPers" name="desenhoPers" placeholder="Desenho">
 
 
-        <br><br><input type="submit" value="Create Character">
+     <fieldset>
+         <legend>Atributos do Personagem</legend>
+
+         <label for="inteligencia">INT</label>
+        <input type="number" min="2" max="10" id="inteligencia" name="atributos.inteligencia" placeholder="inteligencia">
+
+        <label for="reflexo">REF</label>
+        <input type="number" min="2" max="10" id="reflexo" name="atributos.reflexo" placeholder="reflexo">
+
+        <label for="habilidade_tecnica">TEC</label>
+        <input type="number" min="2" max="10" id="habilidade_tecnica" name="atributos.habilidade_tecnica" placeholder="habilidade_tecnica">
+
+        <label for="autocontrole">AUCON</label>
+        <input type="number" min="2" max="10" id="autocontrole" name="atributos.autocontrole" placeholder="autocontrole">
+
+        <br><br><label for="atratividade">ATR</label>
+        <input type="number" min="2" max="10" id="atratividade" name="atributos.atratividade" placeholder="atratividade">
+
+        <label for="sorte">SOR</label>
+        <input type="number" min="2" max="10" id="sorte" name="atributos.sorte" placeholder="sorte">
+
+        <label for="capacidade_de_movimento">MOV</label>
+        <input type="number" min="2" max="10" id="capacidade_de_movimento" name="atributos.capacidade_de_movimento" placeholder="capacidade_de_movimento">
+
+        <label for="tipo_corporal">TCO</label>
+        <input type="number" min="2" max="10" id="tipo_corporal" name="atributos.tipo_corporal" placeholder="tipo_corporal">
+
+        <br><br><label for="empatia">EMP</label>
+        <input type="number" min="2" max="10" id="empatia" name="atributos.empatia" placeholder="empatia">
+
+     </fieldset>
+
+
+
+
+
+
+
+        <br><br>
+    <input type="submit" value="Create Character">
 </form>
-<form action="http://localhost:8080/personagem" method="get">
-    <br>
-    <input type="submit" value="Mostrar Personagens">
-</form>
+    <form action="http://localhost:8080/personagem" method="get">
+        <br>
+        <input type="submit" value="Mostrar Personagens">
+    </form>
 </center>
+
 
 </body>
 </html>

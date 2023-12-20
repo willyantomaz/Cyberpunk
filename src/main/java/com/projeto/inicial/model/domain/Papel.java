@@ -1,7 +1,9 @@
 package com.projeto.inicial.model.domain;
 
 
+import lombok.Getter;
 
+@Getter
 public enum Papel {
     SOLO("Solo"),
     ROQUEIRO("Roqueiro"),
@@ -17,8 +19,5 @@ public enum Papel {
     private final String displayValue;
     Papel(String displayValue) {
         this.displayValue = displayValue;
-    }
-    public String getDisplayValue() {
-        return displayValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.projeto.inicial.model.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -11,6 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Data
 @EqualsAndHashCode(of = "id")
 public class Personagem {
 
@@ -30,10 +32,13 @@ public class Personagem {
 
     private String desenhoPers;
 
-    public Personagem(DadosPersonagem dados) {
-        this.nome = dados.getNome();
-        this.pontos = dados.getPontos();
-        this.papel = dados.getPapel();
-        this.desenhoPers = dados.getDesenhoPers();
+    @Embedded @Valid @NotNull
+    private Atributos atributos;
+
+    public Personagem(Personagem personagem) {
+        this(personagem.getId(), personagem.getNome(),
+                personagem.getPontos(),personagem.getPapel(),
+                personagem.getDesenhoPers(),personagem.getAtributos());
     }
+
 }
