@@ -31,7 +31,7 @@ public class PersonController {
         return ResponseEntity.created(uri).body(new Personagem(person));
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity<List<Personagem>> getAll() {
         var lista = personRepository.findAll().stream().map(Personagem::new).toList();
         return ResponseEntity.ok(lista);

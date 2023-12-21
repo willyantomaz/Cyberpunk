@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyberpunk Characters</title>
+    <style>
+        body {
+            background-color: #0D0C1D;
+            color: #0DF9EA;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1 {
+            text-align: center;
+        }
+        .character-card {
+            background-color: #1F1E33;
+            border: 2px solid #0DF9EA;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Cyberpunk Characters</h1>
+<div id="characters"></div>
+
+<script>
+    const characters = [
+        {
+            "id": 2,
+            "nome": "Jason",
+            "pontos": 45,
+            "papel": "SOLO",
+            "desenhoPers": "edasgahfdahdh",
+            "atributos": null
+        },
+        {
+            "id": 3,
+            "nome": "jao",
+            "pontos": 45,
+            "papel": "TECNICO",
+            "desenhoPers": "calcinha e sutia rosa",
+            "atributos": null
+        }
+    ];
+
+    const charactersDiv = document.getElementById('characters');
+
+    characters.forEach(character => {
+        const characterCard = document.createElement('div');
+        characterCard.className = 'character-card';
+        characterCard.innerHTML = `
+            <h2>${character.nome}</h2>
+            <p>Pontos: ${character.pontos}</p>
+            <p>Papel: ${character.papel}</p>
+            <p>Desenho Pers: ${character.desenhoPers}</p>
+        `;
+        charactersDiv.appendChild(characterCard);
+    });
+</script>
+</body>
+</html>

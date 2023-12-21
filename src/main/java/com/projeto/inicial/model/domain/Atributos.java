@@ -1,6 +1,7 @@
 package com.projeto.inicial.model.domain;
 
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@NotNull
 public class Atributos {
     private Integer inteligencia;
     private Integer reflexo;
