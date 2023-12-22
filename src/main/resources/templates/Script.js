@@ -12,4 +12,33 @@ function validarPontos() {
         }
         return true;
 
+
+
+
+          document.getElementById('formulario').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Enviar a solicitação POST
+      fetch(this.action, {
+       method: this.method,
+       body: new FormData(this)
+      })
+      .then(response => {
+       if (!response.ok) {
+         throw new Error('Erro na solicitação POST');
+       }
+       return response.json();  // Adicionado o retorno aqui
+      })
+      .then(data => {
+       const novoPersonagemId = data.id; // Supondo que o ID retornado esteja na propriedade 'id'
+
+       // Armazena o ID do novo personagem no localStorage
+       localStorage.setItem('novoPersonagemId', novoPersonagemId);
+       // Redirecionar para a página GET após a solicitação POST ser bem-sucedida
+       window.location.href = 'ListaPost.html';
+      })
+      .catch(error => {
+       console.error('Erro:', error);
+      });
+      });
     }

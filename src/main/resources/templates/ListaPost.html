@@ -35,7 +35,7 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     // Função para criar e adicionar os cards na página
     function adicionarCard(personagem, listaPersonagens) {
         const characterCard = document.createElement('div');
@@ -68,29 +68,31 @@ document.addEventListener('DOMContentLoaded', function () {
         listaPersonagens.appendChild(characterCard);
     }
 
-    // Função para carregar e exibir os personagens
-    function carregarPersonagens() {
+        // Função para carregar e exibir os personagens
+       function carregarPersonagem() {
 
-        // Fazendo requisição GET para a API
-        fetch('http://localhost:8080/personagem/get')
+       const personagemId = localStorage.getItem('novoPersonagemId')
+
+       console.log('ID do personagem:',personagemId);
+
+        fetch(`http://localhost:8080/personagem/get/${personagemId}`)
             .then(response => response.json())
-            .then(data => {
+            .then(personagem => {
                 const listaPersonagens = document.getElementById('listaPersonagens');
 
-                // Limpa a lista antes de adicionar os novos personagens
+                // Limpa a lista antes de adicionar o personagem
                 listaPersonagens.innerHTML = '';
 
-                // Itera sobre os dados recebidos e os exibe na lista
-                data.forEach(personagem => {
-                    adicionarCard(personagem, listaPersonagens);
-                });
+                // Adiciona o card apenas para o personagem retornado
+                adicionarCard(personagem, listaPersonagens);
             })
-            .catch(error => console.error('Erro ao carregar personagens:', error));
+            .catch(error => console.error('Erro ao carregar personagem:', error));
     }
 
-    carregarPersonagens();
-});
+    carregarPersonagem();
 
+
+    });
 
 </script>
 

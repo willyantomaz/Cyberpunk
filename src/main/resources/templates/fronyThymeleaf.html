@@ -5,9 +5,9 @@
     <title>Title</title>
     <style>
         body {
-            background-color: #121212;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            background-color: #0D0C1D;
+            color: #0DF9EA;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -16,15 +16,15 @@
             margin-top: 50px;
         }
         form {
-            width: 80%;
+            width: 60%;
             max-width: 600px;
             padding: 20px;
             background-color: #1f1f1f;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(13, 249, 234, 0.5);
             display: flex;
             flex-direction: column;
-
+            align-items: center;
         }
         label, input, select {
             display: block;
@@ -42,15 +42,16 @@
         }
         input[type="submit"],
             .link-button{
+            font-family: 'Courier New', Courier, monospace;
             padding: 10px 20px;
             border: none;
-            border-radius: 4px;
-            background-color: #ff4500;
+            border-radius: 10px;
+            background-color: #FF00FF;
             color: #fff;
             cursor: pointer;
             text-decoration: none;
             text-align: center;
-            width: 100%
+            width: 300px;
             box-sizing: border-box;
         }
         input[type="submit"]:hover,
@@ -88,8 +89,7 @@
     Your browser does not support the video tag.
 </video>
 <center>
-    <form action="http://localhost:8080/personagem" method="post" onsubmit="return validarPontos()">
-        <script src="Script.js"></script>
+    <form id="formulario" action="http://localhost:8080/personagem/post" method="post" onsubmit="return validarPontos()">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" placeholder="Nome" required>
 
@@ -157,14 +157,15 @@
         </fieldset>
 
         <br>
-        <input type="submit" value="Criar Personagem">
+        <input type="submit" value="Criar Personagem" >
         <a href="ListarPersonagens.html" class="link-button">
             Mostrar Personagens
         </a>
     </form>
 
+
 </center>
 
-
+<script src="Script.js"></script>
 </body>
 </html>

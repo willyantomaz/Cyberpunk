@@ -19,7 +19,7 @@ public class PersonController {
     private PersonRepository personRepository;
 
 
-    @PostMapping @Transactional
+    @PostMapping("/post") @Transactional
     public ResponseEntity salvar(@Valid Personagem dados, UriComponentsBuilder builder) {
         var person = new Personagem();
         person = personRepository.save(dados);
@@ -35,6 +35,11 @@ public class PersonController {
     public ResponseEntity<List<Personagem>> getAll() {
         var lista = personRepository.findAll().stream().map(Personagem::new).toList();
         return ResponseEntity.ok(lista);
+    }
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Personagem> getById(@PathVariable Long id) {
+        var personagem = personRepository.getReferenceById(id);
+        return ResponseEntity.ok(new Personagem(personagem));
     }
 }
 
